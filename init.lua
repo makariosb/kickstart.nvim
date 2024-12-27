@@ -937,6 +937,61 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  {
+    --    nvim-lastplace: Plugin that when you re-open a file it opens on the same offset
+    'ethanholz/nvim-lastplace',
+    opts = {
+      lastplace_ignore_buftype = { 'quickfix', 'nofile', 'help' },
+      lastplace_ignore_filetype = { 'gitcommit', 'gitrebase', 'svn', 'hgcommit' },
+      lastplace_open_folds = true,
+    },
+  },
+  {
+    --    nvim-navic: Plugin for LSP information inside the status line
+    'SmiteshP/nvim-navic',
+    requires = 'neovim/nvim-lspconfig',
+    opts = {
+      lsp = {
+        auto_attach = true,
+        -- Set lsp server preference in case more than one is attached to the same buffer
+        -- preference = {'clangd', 'jedi'}
+      },
+      -- stylua: ignore
+      icons = {
+        Array         = "Arr ",
+        Boolean       = "Bool ",
+        Class         = "Cl ",
+        Constant      = "const ",
+        Constructor   = "Cstrct ",
+        Enum          = "E",
+        EnumMember    = "EM ",
+        Event         = "Event ",
+        Field         = "Field ",
+        File          = "File ",
+        Function      = "Fun ",
+        Interface     = "Intrf",
+        Key           = "K ",
+        Method        = "M ",
+        Module        = "mod ",
+        Namespace     = "ns ",
+        Null          = "NULL ",
+        Number        = "Num ",
+        Object        = "Obj ",
+        Operator      = "Oper ",
+        Package       = "Pckg ",
+        Property      = "Prop ",
+        String        = "Str ",
+        Struct        = "Struct ",
+        TypeParameter = "TypeParm ",
+        Variable      = "Var ",
+      },
+      lazy_update_context = true,
+    },
+    init = function()
+      -- Default vim statusline with LSP symbol info in the middle
+      vim.o.statusline = "%<%f %h%m%r%=%{%v:lua.require'nvim-navic'.get_location()%}%= %-14.(%l,%c%V%) %P"
+    end,
+  },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

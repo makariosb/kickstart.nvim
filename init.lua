@@ -382,11 +382,13 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          --   mappings = {
+          --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          --   },
+          path_display = { 'truncate' },
+          wrap_results = true,
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -615,8 +617,8 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
+        clangd = {},
+        gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -710,6 +712,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        go = { 'goimports' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -767,7 +770,10 @@ require('lazy').setup({
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        completion = {
+          completeopt = 'menu,menuone,noinsert',
+          autocomplete = false,
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -844,7 +850,7 @@ require('lazy').setup({
       require('gruvbox').setup {
         dim_inactive = false,
         transparent_mode = false,
-        contrast = 'soft',
+        contrast = 'medium',
       }
       vim.o.background = 'light' -- or "light" for light mode
       vim.cmd.colorscheme 'gruvbox'
@@ -918,9 +924,9 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'go', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
-      auto_install = true,
+      auto_install = false,
       highlight = {
         enable = true,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.

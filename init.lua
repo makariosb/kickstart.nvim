@@ -854,7 +854,7 @@ require('lazy').setup({
       require('gruvbox').setup {
         dim_inactive = false,
         transparent_mode = false,
-        contrast = 'medium',
+        contrast = 'soft',
       }
       vim.o.background = 'light' -- or "light" for light mode
       vim.cmd.colorscheme 'gruvbox'

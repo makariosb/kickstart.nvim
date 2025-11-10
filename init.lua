@@ -388,6 +388,10 @@ require('lazy').setup({
           --   },
           path_display = { 'truncate' },
           wrap_results = true,
+          layout_config = {
+            horizontal = { width = 0.99, height = 0.99 },
+            preview_width = 0.40,
+          },
         },
         -- pickers = {}
         extensions = {
@@ -924,7 +928,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'go', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'python', 'go' },
       -- Autoinstall languages that are not installed
       auto_install = false,
       highlight = {
@@ -933,6 +937,7 @@ require('lazy').setup({
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
+        disable = {},
       },
       indent = { enable = true, disable = { 'ruby' } },
     },

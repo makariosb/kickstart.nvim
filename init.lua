@@ -436,6 +436,14 @@ require('lazy').setup({
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
+      -- Search man pages
+      vim.keymap.set('n', '<leader>sm', function()
+        builtin.man_pages { sections = { '1', '3', '7' } }
+      end, { desc = '[S]earch [M]anpages' })
+
+      -- Replace word within buffer
+      vim.keymap.set('n', '<leader>rw', ':%s/<C-r><C-w>/', { desc = '[R]eplace [W]ord in buffer' })
+
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }

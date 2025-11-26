@@ -389,8 +389,16 @@ require('lazy').setup({
           path_display = { 'truncate' },
           wrap_results = true,
           layout_config = {
-            horizontal = { width = 0.99, height = 0.99 },
             preview_width = 0.40,
+            center = {
+              width = 0.99,
+            },
+            horizontal = {
+             width = 0.99, height = 0.99 
+            },
+            vertical = {
+              width = 0.99,
+            },
           },
         },
         -- pickers = {}
@@ -862,7 +870,7 @@ require('lazy').setup({
       require('gruvbox').setup {
         dim_inactive = false,
         transparent_mode = false,
-        contrast = 'soft',
+        contrast = '',
       }
       vim.o.background = 'light' -- or "light" for light mode
       vim.cmd.colorscheme 'gruvbox'

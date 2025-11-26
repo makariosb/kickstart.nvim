@@ -639,6 +639,18 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
+        basedpyright = {
+          settings = {
+            python = {
+              pythonPath = 'python3',
+            },
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = 'basic',
+              },
+            },
+          },
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -958,7 +970,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'python', 'go' },
+      ensure_installed = { 'go', 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = false,
       highlight = {

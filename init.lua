@@ -189,6 +189,10 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+--
+--  Mappings for quickfix list
+vim.keymap.set('n', 'qj', ':cnext<CR>', { desc = 'Go to the next item in quickfix list' })
+vim.keymap.set('n', 'qk', ':cprev<CR>', { desc = 'Go to the previous item in quickfix list' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -394,7 +398,8 @@ require('lazy').setup({
               width = 0.99,
             },
             horizontal = {
-             width = 0.99, height = 0.99 
+              width = 0.99,
+              height = 0.99,
             },
             vertical = {
               width = 0.99,

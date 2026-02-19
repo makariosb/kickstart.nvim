@@ -193,6 +193,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 --  Mappings for quickfix list
 vim.keymap.set('n', 'qj', ':cnext<CR>', { desc = 'Go to the next item in quickfix list' })
 vim.keymap.set('n', 'qk', ':cprev<CR>', { desc = 'Go to the previous item in quickfix list' })
+--
+-- Remap Ctrl-A to behave like Ctrl-B (go to the beginning of the command line)
+vim.keymap.set('c', '<C-a>', '<C-b>', { desc = 'Beginning of command line' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

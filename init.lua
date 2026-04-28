@@ -911,6 +911,20 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Align text
+      require('mini.align').setup {
+        mappings = {
+          start = '', -- disabled non-preview mode
+          start_with_preview = 'ga',
+        },
+        -- Default options controlling alignment process
+        options = {
+          split_pattern = '%s+',
+          justify_side = 'left',
+          merge_delimiter = ' ',
+        },
+      }
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
